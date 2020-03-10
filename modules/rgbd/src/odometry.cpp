@@ -185,7 +185,7 @@ void preparePyramidMask(const Mat& mask, const std::vector<Mat>& pyramidDepth, f
                 CV_Assert(pyramidNormal[i].size() == pyramidDepth[i].size());
                 Mat levelNormal = pyramidNormal[i].clone();
 
-                Mat validNormalMask = levelNormal == levelNormal; // otherwise it's Nan
+                Mat validNormalMask = equals(levelNormal, levelNormal); // otherwise it's Nan
                 CV_Assert(validNormalMask.type() == CV_8UC3);
 
                 std::vector<Mat> channelMasks;
